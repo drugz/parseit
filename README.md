@@ -1,0 +1,5 @@
+# parseit
+
+yarn
+
+yarn start
