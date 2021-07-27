@@ -1,14 +1,21 @@
 const puppeteer = require('puppeteer');
 
-(async() => {
-  const browser = await puppeteer.launch() ; 
-  const page = await browser.newPage();
+(async () => {
+    var fs = require('fs');
+    var dir = './result';
 
-  await page.goto('http://devconf.ru/') ; 
-  await page.emulateMediaType('screen') ; 
-  await page.pdf({
-    path: './devconf.pdf', 
-    printBackground: true 
-  });
-await browser.close() ;
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+
+    const browser = await puppeteer.launch();
+    const page = await browser.newPage();
+
+    await page.goto('http://devconf.ru/');
+    await page.emulateMediaType('screen');
+    await page.pdf({
+        path: dir+'/devconf.pdf',
+        printBackground: true
+    });
+    await browser.close();
 })();

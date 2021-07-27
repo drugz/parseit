@@ -1,5 +1,6 @@
 /node_modules/
 /dist/
+/result/
 /builds/
 /.vscode/
 /.history/
@@ -109,3 +110,4 @@ dist
 
 # TernJS port file
 .tern-port
+
