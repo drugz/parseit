@@ -8,7 +8,9 @@ const puppeteer = require('puppeteer');
         fs.mkdirSync(dir);
     }
 
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: false
+      });
     const page = await browser.newPage();
 
     await page.goto('http://devconf.ru/');
